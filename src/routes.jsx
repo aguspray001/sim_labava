@@ -5,8 +5,12 @@ import {
   InformationCircleIcon,
   ServerStackIcon,
   RectangleStackIcon,
+  ClipboardDocumentCheckIcon,
+  VideoCameraIcon
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { PeminjamanRuangan, PeminjamanAlat } from "@/pages/form";
+
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -23,12 +27,12 @@ export const routes = [
         path: "/home",
         element: <Home />,
       },
-      {
-        icon: <UserCircleIcon {...icon} />,
-        name: "profile",
-        path: "/profile",
-        element: <Profile />,
-      },
+      // {
+      //   icon: <UserCircleIcon {...icon} />,
+      //   name: "profile",
+      //   path: "/profile",
+      //   element: <Profile />,
+      // },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "tables",
@@ -36,10 +40,16 @@ export const routes = [
         element: <Tables />,
       },
       {
-        icon: <InformationCircleIcon {...icon} />,
-        name: "notifications",
-        path: "/notifications",
-        element: <Notifications />,
+        icon: <ClipboardDocumentCheckIcon {...icon} />,
+        name: "form peminjaman alat",
+        path: "/peminjaman-alat",
+        element: <PeminjamanAlat/>,
+      },
+      {
+        icon: <VideoCameraIcon {...icon} />,
+        name: "form peminjaman ruangan",
+        path: "/peminjaman-ruangan",
+        element: <PeminjamanRuangan />,
       },
     ],
   },

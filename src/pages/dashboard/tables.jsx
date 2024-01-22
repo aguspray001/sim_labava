@@ -7,6 +7,7 @@ import {
   Chip,
   Tooltip,
   Progress,
+  Button,
 } from "@material-tailwind/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { authorsTableData, projectsTableData } from "@/data";
@@ -17,7 +18,7 @@ export function Tables() {
       <Card>
         <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
           <Typography variant="h6" color="white">
-            Authors Table
+            Daftar Peminjam Ruangan
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
@@ -89,13 +90,8 @@ export function Tables() {
                         </Typography>
                       </td>
                       <td className={className}>
-                        <Typography
-                          as="a"
-                          href="#"
-                          className="text-xs font-semibold text-blue-gray-600"
-                        >
-                          Edit
-                        </Typography>
+                        <Button color="green">Accept</Button>
+                        <Button color="red" style={{marginLeft: 10}}>Reject</Button>
                       </td>
                     </tr>
                   );
