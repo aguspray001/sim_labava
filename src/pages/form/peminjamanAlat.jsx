@@ -9,6 +9,7 @@ import {
   } from "@material-tailwind/react";
 
   import DatePicker from '@/widgets/components/datePicker';
+import { Link } from 'react-router-dom';
 
 export const PeminjamanAlat = () => {
   return (
@@ -20,7 +21,7 @@ export const PeminjamanAlat = () => {
         </Typography>
       </CardHeader>
       <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
-        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+        <form className="mt-8 mb-2 w-100 max-w-screen-lg sm:w-96">
         <div className="ml-8 mb-1 flex flex-col gap-6">
           <Typography variant="h6" color="blue-gray" className="-mb-3">
             Nama Peminjam
@@ -93,9 +94,106 @@ export const PeminjamanAlat = () => {
             Tanggal Pengembalian
           </Typography>
           <DatePicker/>
+        <div className="my-4 flex grid-rows-2 gap-4">
+            <div>
+                <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 font-medium"
+                >
+                Nama Alat
+                </Typography>
+                <Input
+                maxLength={4}
+                containerProps={{ className: "min-w-[72px]" }}
+                placeholder="000"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                    className: "before:content-none after:content-none",
+                }}
+                />
+            </div>
+            <div>
+                <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 font-medium"
+                >
+                Jumlah
+                </Typography>
+                <Input
+                maxLength={4}
+                containerProps={{ className: "min-w-[72px]" }}
+                placeholder="000"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                    className: "before:content-none after:content-none",
+                }}
+                />
+            </div>
+            <div>
+                <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 font-medium"
+                >
+                Kondisi Pinjam
+                </Typography>
+                <Input
+                maxLength={4}
+                containerProps={{ className: "min-w-[72px]" }}
+                placeholder="000"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                    className: "before:content-none after:content-none",
+                }}
+                />
+            </div>
+            <div>
+                <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 font-medium"
+                >
+                Kondisi Pengembalian
+                </Typography>
+                <Input
+                maxLength={4}
+                containerProps={{ className: "min-w-[72px]" }}
+                placeholder="000"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                    className: "before:content-none after:content-none",
+                }}
+                />
+            </div>
+            <div>
+                <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 font-medium"
+                >
+                Catatan Pengembalian
+                </Typography>
+                <Input
+                maxLength={4}
+                containerProps={{ className: "min-w-[72px]" }}
+                placeholder="000"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                    className: "before:content-none after:content-none",
+                }}
+                />
+            </div>
+        </div>
         <Button className="mt-6" fullWidth>
           Submit
         </Button>
+        {/* <Button className="mt-2" fullWidth> */}
+        <Link to={`/dashboard/peminjaman-alat/pdf`}>
+            Generate PDF
+        </Link>
+        {/* </Button> */}
         </div>
         </form>
       </CardBody>

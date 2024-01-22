@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@david.kucsai/react-pdf-table": "^0.4.1",
     "@heroicons/react": "2.0.18",
     "@material-tailwind/react": "2.1.4",
+    "@react-pdf/renderer": "^3.3.1",
     "apexcharts": "3.44.0",
     "axios": "^1.6.5",
     "date-fns": "^3.3.0",
