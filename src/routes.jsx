@@ -41,13 +41,13 @@ export const routes = [
       },
       {
         icon: <ClipboardDocumentCheckIcon {...icon} />,
-        name: "form peminjaman alat",
+        name: "peminjaman alat",
         path: "/peminjaman-alat",
         element: <PeminjamanAlat/>,
       },
       {
         icon: <VideoCameraIcon {...icon} />,
-        name: "form peminjaman ruangan",
+        name: "peminjaman ruangan",
         path: "/peminjaman-ruangan",
         element: <PeminjamanRuangan />,
       },
