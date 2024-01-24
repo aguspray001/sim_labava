@@ -66,7 +66,7 @@ export function Home() {
         ))}
       </div> */}
       <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
-        <Card className="overflow-hidden xl:col-span-2 border border-blue-gray-100 shadow-sm">
+        <Card className="overflow-hidden xl:col-span-3 border border-blue-gray-100 shadow-sm">
           <CardHeader
             floated={false}
             shadow={false}
@@ -74,12 +74,13 @@ export function Home() {
             className="m-0 flex items-center justify-between p-6"
           >
             <div>
-              <Typography variant="h6" color="blue-gray" className="mb-1">
-                zacky amam SPEMINJAMAN BAGI CIVITAS ACADEMICA FKES UNUSA
+              <Typography variant="h6" color="blue-gray" className="mb-1 text-center">
+                SOP PEMINJAMAN ALAT DAN RUANGAN BAGI CIVITAS ACADEMICA FKES UNUSA
               </Typography>
             </div>
           </CardHeader>
-          <CardBody className="overflow-x-scroll px-6 pt-0 pb-2">
+          {/* <CardBody className="overflow-x-scroll px-6 pt-0 pb-2"> */}
+          <CardBody className="px-6 pt-0 pb-2">
             <ol type="1" class="list-disc list-inside">
               <li>Mengisi formulir yang telah disediakan (formulir berupa: (1) formulir peminjaman alat; (2) formulir pemakaian studio dan perlengkapannya).</li>
               <li>Formulir bisa diserahkan ke Pengelola Lab. maksimal 2 (dua) hari sebelum pelaksanaan proses produksi (baik di dalam Lab. maupun proses produksi di luar Laboratorium).</li>
@@ -97,7 +98,7 @@ export function Home() {
         </Card>
       </div>
       <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
-        <Card className="overflow-hidden xl:col-span-2 border border-blue-gray-100 shadow-sm">
+        <Card className="overflow-hidden xl:col-span-3 border border-blue-gray-100 shadow-sm">
           <CardHeader
             floated={false}
             shadow={false}
@@ -106,11 +107,11 @@ export function Home() {
           >
             <div>
               <Typography variant="h6" color="blue-gray" className="mb-1">
-                PEMINJAMAN BAGI CIVITAS ACADEMICA UNUSA - DI LUAR FKES
+                SOP PEMINJAMAN ALAT DAN RUANGAN BAGI CIVITAS ACADEMICA UNUSA - DI LUAR FKES
               </Typography>
             </div>
           </CardHeader>
-          <CardBody className="overflow-x-scroll px-6 pt-0 pb-2">
+          <CardBody className="px-6 pt-0 pb-2">
             <ol type="1" class="list-disc list-inside">
               <li>Mengisi formulir yang telah disediakan (formulir berupa: (1) formulir peminjaman alat; (2) formulir pemakaian studio dan perlengkapannya).</li>
               <li>Formulir bisa diserahkan ke Pengelola Lab. maksimal 2 (dua) hari sebelum pelaksanaan proses produksi (baik di dalam Lab. maupun proses produksi di luar Laboratorium).</li>
@@ -128,6 +129,26 @@ export function Home() {
           </CardBody>
         </Card>
       </div>
+      <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
+        <Card className="overflow-hidden xl:col-span-3 border border-blue-gray-100 shadow-sm">
+          <CardHeader
+            floated={false}
+            shadow={false}
+            color="transparent"
+            className="m-0 flex items-center justify-between p-6"
+          >
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                ALUR PEMINJAMAN ALAT & PEMAKAIAN LABORATORIUM
+              </Typography>
+            </div>
+          </CardHeader>
+          <CardBody className="px-6 pt-0 pb-2">
+            <img src="/img/alur-sop.jpg" alt="Girl in a jacket" width="1000" height="820"></img>
+          </CardBody>
+        </Card>
+      </div>
+
     </div>
   );
 }

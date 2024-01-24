@@ -25,7 +25,7 @@ export function Tables() {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["author", "function", "status", "employed", ""].map((el) => (
+                {["Peminjam", "Role", "Status", ""].map((el) => (
                   <th
                     key={el}
                     className="border-b border-blue-gray-50 py-3 px-5 text-left"
@@ -43,11 +43,10 @@ export function Tables() {
             <tbody>
               {authorsTableData.map(
                 ({ img, name, email, job, online, date }, key) => {
-                  const className = `py-3 px-5 ${
-                    key === authorsTableData.length - 1
-                      ? ""
-                      : "border-b border-blue-gray-50"
-                  }`;
+                  const className = `py-3 px-5 ${key === authorsTableData.length - 1
+                    ? ""
+                    : "border-b border-blue-gray-50"
+                    }`;
 
                   return (
                     <tr key={name}>
@@ -80,7 +79,7 @@ export function Tables() {
                         <Chip
                           variant="gradient"
                           color={online ? "green" : "blue-gray"}
-                          value={online ? "online" : "offline"}
+                          value={online ? "accepted" : "rejected"}
                           className="py-0.5 px-2 text-[11px] font-medium w-fit"
                         />
                       </td>
@@ -91,7 +90,7 @@ export function Tables() {
                       </td>
                       <td className={className}>
                         <Button color="green">Accept</Button>
-                        <Button color="red" style={{marginLeft: 10}}>Reject</Button>
+                        <Button color="red" style={{ marginLeft: 10 }}>Reject</Button>
                       </td>
                     </tr>
                   );
@@ -131,11 +130,10 @@ export function Tables() {
             <tbody>
               {projectsTableData.map(
                 ({ img, name, members, budget, completion }, key) => {
-                  const className = `py-3 px-5 ${
-                    key === projectsTableData.length - 1
-                      ? ""
-                      : "border-b border-blue-gray-50"
-                  }`;
+                  const className = `py-3 px-5 ${key === projectsTableData.length - 1
+                    ? ""
+                    : "border-b border-blue-gray-50"
+                    }`;
 
                   return (
                     <tr key={name}>
@@ -159,9 +157,8 @@ export function Tables() {
                               alt={name}
                               size="xs"
                               variant="circular"
-                              className={`cursor-pointer border-2 border-white ${
-                                key === 0 ? "" : "-ml-2.5"
-                              }`}
+                              className={`cursor-pointer border-2 border-white ${key === 0 ? "" : "-ml-2.5"
+                                }`}
                             />
                           </Tooltip>
                         ))}
