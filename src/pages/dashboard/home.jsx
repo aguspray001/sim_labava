@@ -75,7 +75,7 @@ export function Home() {
           >
             <div>
               <Typography variant="h6" color="blue-gray" className="mb-1">
-                BAGI CIVITAS ACADEMICA FKES UNUSA
+                PEMINJAMAN BAGI CIVITAS ACADEMICA FKES UNUSA
               </Typography>
             </div>
           </CardHeader>
@@ -106,7 +106,7 @@ export function Home() {
           >
             <div>
               <Typography variant="h6" color="blue-gray" className="mb-1">
-                BAGI CIVITAS ACADEMICA UNUSA - DI LUAR FKES
+                PEMINJAMAN BAGI CIVITAS ACADEMICA UNUSA - DI LUAR FKES
               </Typography>
             </div>
           </CardHeader>
