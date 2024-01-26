@@ -124,7 +124,6 @@ export function Home() {
               <li>Tidak diperbolehkan makan dan minum di dalam Lab. AVA.</li>
               <li>Saat memakai laboratorium TV dan Fotografi, tidak diperkenankan menggunakan properti api dan air.</li>
               <li>Saat memakai laboratorium TV dan Fotografi, tidak diperbolehkan menempel properti permanen atau yang bisa meninggalkan bekas, tanpa seizin Penanggung Jawab Lab.</li>
-
             </ol>
           </CardBody>
         </Card>

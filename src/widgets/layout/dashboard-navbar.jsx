@@ -1,3 +1,4 @@
+// Dashboard Navbar di atas...
 import { useLocation, Link } from "react-router-dom";
 import {
   Navbar,
@@ -25,6 +26,7 @@ import {
   setOpenConfigurator,
   setOpenSidenav,
 } from "@/context";
+import { Dropdown } from "react-day-picker";
 
 export function DashboardNavbar() {
   const [controller, dispatch] = useMaterialTailwindController();
@@ -32,23 +34,26 @@ export function DashboardNavbar() {
   const { pathname } = useLocation();
   const [layout, page] = pathname.split("/").filter((el) => el !== "");
 
+  const user = {
+    name: "Zacky Maulana Achmad",
+    avatar: "/img/Zacky.png", // URL gambar profil pengguna
+  };
+
   return (
     <Navbar
       color={fixedNavbar ? "white" : "transparent"}
-      className={`rounded-xl transition-all ${
-        fixedNavbar
-          ? "sticky top-4 z-40 py-3 shadow-md shadow-blue-gray-500/5"
-          : "px-0 py-1"
-      }`}
+      className={`rounded-xl transition-all ${fixedNavbar
+        ? "sticky top-4 z-40 py-3 shadow-md shadow-blue-gray-500/5"
+        : "px-0 py-1"
+        }`}
       fullWidth
       blurred={fixedNavbar}
     >
       <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center">
         <div className="capitalize">
           <Breadcrumbs
-            className={`bg-transparent p-0 transition-all ${
-              fixedNavbar ? "mt-1" : ""
-            }`}
+            className={`bg-transparent p-0 transition-all ${fixedNavbar ? "mt-1" : ""
+              }`}
           >
             <Link to={`/${layout}`}>
               <Typography
@@ -72,18 +77,7 @@ export function DashboardNavbar() {
           </Typography>
         </div>
         <div className="flex items-center">
-          <div className="mr-auto md:mr-4 md:w-56">
-            <Input label="Search" />
-          </div>
-          <IconButton
-            variant="text"
-            color="blue-gray"
-            className="grid xl:hidden"
-            onClick={() => setOpenSidenav(dispatch, !openSidenav)}
-          >
-            <Bars3Icon strokeWidth={3} className="h-6 w-6 text-blue-gray-500" />
-          </IconButton>
-          <Link to="/auth/sign-in">
+          {/* <Link to="/dashboard/profile">
             <Button
               variant="text"
               color="blue-gray"
@@ -99,8 +93,25 @@ export function DashboardNavbar() {
             >
               <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
             </IconButton>
+          </Link> */}
+
+          <Link to="/dashboard/profile" className="flex items-center">
+            <Avatar
+              src={user.avatar}
+              alt="User Avatar"
+              size="sm"
+              className="mr-2"
+            />
+            <Typography
+              variant="body"
+              color="blue-gray"
+              className="hidden xl:flex"
+            >
+              {user.name}
+            </Typography>
           </Link>
-          <Menu>
+
+          {/* <Menu>
             <MenuHandler>
               <IconButton variant="text" color="blue-gray">
                 <BellIcon className="h-5 w-5 text-blue-gray-500" />
@@ -177,14 +188,16 @@ export function DashboardNavbar() {
                 </div>
               </MenuItem>
             </MenuList>
-          </Menu>
-          <IconButton
+          </Menu> */}
+
+          {/* <IconButton
             variant="text"
             color="blue-gray"
             onClick={() => setOpenConfigurator(dispatch, true)}
           >
             <Cog6ToothIcon className="h-5 w-5 text-blue-gray-500" />
-          </IconButton>
+          </IconButton> */}
+
         </div>
       </div>
     </Navbar>

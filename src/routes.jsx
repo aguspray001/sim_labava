@@ -27,15 +27,21 @@ export const routes = [
         path: "/home",
         element: <Home />,
       },
-      // {
-      //   icon: <UserCircleIcon {...icon} />,
-      //   name: "profile",
-      //   path: "/profile",
-      //   element: <Profile />,
-      // },
+      {
+        icon: <UserCircleIcon {...icon} />,
+        name: "profile",
+        path: "/profile",
+        element: <Profile />,
+      },
       {
         icon: <TableCellsIcon {...icon} />,
-        name: "tables",
+        name: "Daftar Inventaris",
+        path: "/inventaris",
+        element: <Tables />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Daftar Peminjam",
         path: "/tables",
         element: <Tables />,
       },
@@ -43,7 +49,7 @@ export const routes = [
         icon: <ClipboardDocumentCheckIcon {...icon} />,
         name: "peminjaman alat",
         path: "/peminjaman-alat",
-        element: <PeminjamanAlat/>,
+        element: <PeminjamanAlat />,
       },
       {
         icon: <VideoCameraIcon {...icon} />,
@@ -59,16 +65,16 @@ export const routes = [
     pages: [
       {
         icon: <ServerStackIcon {...icon} />,
-        name: "sign in",
+        name: "Log Out",
         path: "/sign-in",
         element: <SignIn />,
       },
-      {
-        icon: <RectangleStackIcon {...icon} />,
-        name: "sign up",
-        path: "/sign-up",
-        element: <SignUp />,
-      },
+      // {
+      //   icon: <RectangleStackIcon {...icon} />,
+      //   name: "sign up",
+      //   path: "/sign-up",
+      //   element: <SignUp />,
+      // },
     ],
   },
 ];
