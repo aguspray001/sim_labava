@@ -35,7 +35,7 @@ export function Profile() {
               <Avatar
                 src="/img/Zacky.png"
                 // alt="Zacky"
-                size="xl"
+                size="xxl"
                 variant="rounded"
                 className="rounded-lg shadow-lg shadow-blue-gray-500/40"
               />
