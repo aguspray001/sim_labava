@@ -33,25 +33,25 @@ export function Profile() {
           <div className="mb-10 flex items-center justify-between flex-wrap gap-6">
             <div className="flex items-center gap-6">
               <Avatar
-                src="/img/bruce-mars.jpeg"
-                alt="bruce-mars"
-                size="xl"
+                src="/img/Zacky.png"
+                // alt="Zacky"
+                size="xxl"
                 variant="rounded"
                 className="rounded-lg shadow-lg shadow-blue-gray-500/40"
               />
               <div>
                 <Typography variant="h5" color="blue-gray" className="mb-1">
-                  Richard Davis
+                  Zacky Maulana Achmad
                 </Typography>
                 <Typography
                   variant="small"
                   className="font-normal text-blue-gray-600"
                 >
-                  CEO / Co-Founder
+                  Fakultas Kesehatan
                 </Typography>
               </div>
             </div>
-            <div className="w-96">
+            {/* <div className="w-96">
               <Tabs value="app">
                 <TabsHeader>
                   <Tab value="app">
@@ -68,10 +68,10 @@ export function Profile() {
                   </Tab>
                 </TabsHeader>
               </Tabs>
-            </div>
+            </div> */}
           </div>
           <div className="gird-cols-1 mb-12 grid gap-12 px-4 lg:grid-cols-2 xl:grid-cols-3">
-            <div>
+            {/* <div>
               <Typography variant="h6" color="blue-gray" className="mb-3">
                 Platform Settings
               </Typography>
@@ -97,22 +97,24 @@ export function Profile() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
             <ProfileInfoCard
-              title="Profile Information"
-              description="Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
+              // title="Profile Information"
+              // description="Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
               details={{
-                "first name": "Alec M. Thompson",
-                mobile: "(44) 123 1234 123",
-                email: "alecthompson@mail.com",
-                location: "USA",
-                social: (
-                  <div className="flex items-center gap-4">
-                    <i className="fa-brands fa-facebook text-blue-700" />
-                    <i className="fa-brands fa-twitter text-blue-400" />
-                    <i className="fa-brands fa-instagram text-purple-500" />
-                  </div>
-                ),
+                username: "Zacky Maulana Achmad",
+                email: "zacky@gmail.com",
+                phone: "081234567889",
+                role: "mahasiswa",
+                NIM: "3130031887",
+                prodi: "S1 Kesehatan Masyarakat",
+                // social: (
+                //   <div className="flex items-center gap-4">
+                //     <i className="fa-brands fa-facebook text-blue-700" />
+                //     <i className="fa-brands fa-twitter text-blue-400" />
+                //     <i className="fa-brands fa-instagram text-purple-500" />
+                //   </div>
+                // ),
               }}
               action={
                 <Tooltip content="Edit Profile">
@@ -120,7 +122,7 @@ export function Profile() {
                 </Tooltip>
               }
             />
-            <div>
+            {/* <div>
               <Typography variant="h6" color="blue-gray" className="mb-3">
                 Platform Settings
               </Typography>
@@ -137,9 +139,9 @@ export function Profile() {
                   />
                 ))}
               </ul>
-            </div>
+            </div> */}
           </div>
-          <div className="px-4 pb-4">
+          {/* <div className="px-4 pb-4">
             <Typography variant="h6" color="blue-gray" className="mb-2">
               Projects
             </Typography>
@@ -211,7 +213,7 @@ export function Profile() {
                 )
               )}
             </div>
-          </div>
+          </div> */}
         </CardBody>
       </Card>
     </>
