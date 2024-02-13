@@ -17,7 +17,7 @@ import TodosForm from './TodosForm';
 
 export const PeminjamanAlat = () => {
   return (
-    <div className="mt-12 mb-8 flex flex-col gap-12">
+    <div className="mt-12 mb-8 flex flex-col gap-12 ">
       <Card>
         <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
           <Typography variant="h6" color="white">
@@ -125,8 +125,15 @@ export const PeminjamanAlat = () => {
               <DatePicker />
 
               <div className="App">
-                <h1>Dynamic Todo List</h1>
+                <h1 className='mb-3'>Dynamic Todo List</h1>
                 <TodosForm />
+              </div>
+
+              <div class="col-span-full">
+                <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
+                <div class="mt-2">
+                  <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                </div>
               </div>
               {/* <div className="my-4 flex grid-rows-2 gap-4">
                 <div>

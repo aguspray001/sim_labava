@@ -76,7 +76,18 @@ export function DashboardNavbar() {
             {page}
           </Typography>
         </div>
-        <div className="flex items-center">
+        <div className="flex flex-row-reverse items-center">
+          {/* <div className="mr-auto md:mr-4 md:w-56">
+            <Input label="Search" />
+          </div> */}
+          <IconButton
+            variant="text"
+            color="blue-gray"
+            className="grid xl:hidden"
+            onClick={() => setOpenSidenav(dispatch, !openSidenav)}
+          >
+            <Bars3Icon strokeWidth={3} className="h-6 w-6 text-blue-gray-500" />
+          </IconButton>
           {/* <Link to="/dashboard/profile">
             <Button
               variant="text"
@@ -100,7 +111,7 @@ export function DashboardNavbar() {
               src={user.avatar}
               alt="User Avatar"
               size="sm"
-              className="mr-2"
+              className="ml-2"
             />
             <Typography
               variant="body"
