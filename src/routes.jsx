@@ -8,7 +8,7 @@ import {
   ClipboardDocumentCheckIcon,
   VideoCameraIcon
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { Home, Profile, Tables, Stuff } from "@/pages/dashboard";
 import { PeminjamanRuangan, PeminjamanAlat } from "@/pages/form";
 
 import { SignIn, SignUp } from "@/pages/auth";
@@ -35,9 +35,9 @@ export const routes = [
       },
       {
         icon: <TableCellsIcon {...icon} />,
-        name: "Daftar Inventaris",
-        path: "/inventaris",
-        element: <Tables />,
+        name: "Daftar Inventaris Lab",
+        path: "/stuff",
+        element: <Stuff />,
       },
       {
         icon: <TableCellsIcon {...icon} />,
@@ -69,12 +69,12 @@ export const routes = [
         path: "/sign-in",
         element: <SignIn />,
       },
-      // {
-      //   icon: <RectangleStackIcon {...icon} />,
-      //   name: "sign up",
-      //   path: "/sign-up",
-      //   element: <SignUp />,
-      // },
+      {
+        icon: <RectangleStackIcon {...icon} />,
+        name: "sign up",
+        path: "/sign-up",
+        element: <SignUp />,
+      },
     ],
   },
 ];

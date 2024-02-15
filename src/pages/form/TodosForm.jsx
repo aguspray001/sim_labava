@@ -1,10 +1,9 @@
 import { useState } from "react";
 
 function TodoForm() {
-    const [todos, setTodos] = useState([{ nama_alat: "", jumlah: "", kondisi_pinjam: "", kondisi_pengembalian: "" }]);
+    const [todos, setTodos] = useState([{ namaAlat: "", jumlah: "", kondisi_pinjam: "", kondisi_pengembalian: "" }]);
 
     const handleTodoChange = (e, i) => {
-        // Todo: Change todo at position i
         const field = e.target.name;
         const newTodos = [...todos];
         newTodos[i][field] = e.target.value;
@@ -12,14 +11,11 @@ function TodoForm() {
     };
 
     const handleAddTodo = () => {
-        // Todo: Append a new empty todo
-        setTodos([...todos, { nama_alat: "", jumlah: "", kondisi_pinjam: "", kondisi_pengembalian: "" }]);
+        setTodos([...todos, { namaAlat: "", jumlah: "", kondisi_pinjam: "", kondisi_pengembalian: "" }]);
     };
 
     const handleDeleteTodo = (i) => {
-        // Todo: Delete todo at position i
-        const newTodos = [...todos];
-        newTodos.splice(i, 1);
+        const newTodos = todos.filter((todo, index) => index !== i);
         setTodos(newTodos);
     };
 
@@ -30,18 +26,18 @@ function TodoForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="pl-4 pb-2" onSubmit={handleSubmit}>
             {todos.map((todo, index) => (
-                <div key={index}>
+                <div key={index} className="grid grid-cols-9 gap-4 pb-2">
                     <div className="sm:col-span-2 sm:col-start-1">
-                        <label htmlFor="alat" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label className="block text-sm font-medium leading-6 text-gray-900">
                             Alat
                         </label>
                         <div className="mt-2">
                             <input
                                 type="text"
                                 name="namaAlat"
-                                value={todo.name_alat}
+                                value={todo.namaAlat}
                                 onChange={(e) => handleTodoChange(e, index)}
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -50,7 +46,7 @@ function TodoForm() {
                     </div>
 
                     <div className="sm:col-span-2">
-                        <label htmlFor="jumlah" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label className="block text-sm font-medium leading-6 text-gray-900">
                             Jumlah
                         </label>
                         <div className="mt-2">
@@ -69,102 +65,38 @@ function TodoForm() {
                             Kondisi Pinjam
                         </label>
                         <div className="mt-2">
-                            <select
-                                value={todo.kondisi_pinjam}
-                                name="label"
-                                onChange={(e) => handleTodoChange(e, index)}
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                            >
-                                <option>United States</option>
-                                <option>Canada</option>
-                                <option>Mexico</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="sm:col-span-2">
-                        <label htmlFor="kondisi_pinjam" className="block text-sm font-medium leading-6 text-gray-900">
-                            Kondisi Pengembalian
-                        </label>
-                        <div className="mt-2">
-                            <select
-                                value={todo.kondisi_pinjam}
-                                name="label"
-                                onChange={(e) => handleTodoChange(e, index)}
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                            >
-                                <option>United States</option>
-                                <option>Canada</option>
-                                <option>Mexico</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div className="sm:col-span-2">
-                        <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
-                            ZIP / Postal code
-                        </label>
-                        <div className="mt-2">
                             <input
                                 type="text"
-                                name="postal-code"
-                                id="postal-code"
-                                autoComplete="postal-code"
+                                name="kondisi_pinjam"
+                                value={todo.kondisi_pinjam}
+                                onChange={(e) => handleTodoChange(e, index)}
+                                required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
-                    {/* <input
-                        type="text"
-                        placeholder="Nama Alat"
-                        name="namaAlat"
-                        value={todo.name_alat}
-                        onChange={(e) => handleTodoChange(e, index)}
-                        required
-                    />
-                    <input
-                        type="text"
-                        placeholder="Jumlah"
-                        name="jumlah"
-                        value={todo.jumlah}
-                        onChange={(e) => handleTodoChange(e, index)}
-                        required
-                    />
-                    <select
-                        value={todo.kondisi_pinjam}
-                        name="label"
-                        onChange={(e) => handleTodoChange(e, index)}
-                        required
-                    >
-                        <option value="">label</option>
-                        <option value="important">Important</option>
-                        <option value="not-important">Not Important</option>
-                    </select>
-                    {/* <input
-                        type="text"
-                        placeholder="Jumlah"
-                        name="jumlah"
-                        value={todo.jumlah}
-                        onChange={(e) => handleTodoChange(e, index)}
-                        required
-                    /> */}
-                    {/* <select
-                        value={todo.label}
-                        name="label"
-                        onChange={(e) => handleTodoChange(e, index)}
-                        required
-                    >
-                        <option value="">label</option>
-                        <option value="important">Important</option>
-                        <option value="not-important">Not Important</option>
-                    </select> */}
+                    <div className="sm:col-span-2">
+                        <label htmlFor="kondisi_pengembalian" className="block text-sm font-medium leading-6 text-gray-900">
+                            Kondisi Pengembalian
+                        </label>
+                        <div className="mt-2">
+                            <input
+                                type="text"
+                                name="kondisi_pengembalian"
+                                value={todo.kondisi_pengembalian}
+                                onChange={(e) => handleTodoChange(e, index)}
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
+                        </div>
+                    </div>
                     <button onClick={() => handleDeleteTodo(index)}>Delete</button>
                 </div>
-
             ))}
-            <button onClick={handleAddTodo}>Add Todo</button>
-            <button type="submit">Submit Todos</button>
+            <div>
+                <button className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    onClick={handleAddTodo}>Add Todo</button>
+            </div>
         </form>
     );
 }

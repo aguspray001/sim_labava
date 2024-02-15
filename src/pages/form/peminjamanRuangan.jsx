@@ -117,6 +117,24 @@ export const PeminjamanRuangan = () => {
                 <DatePicker />
               </div>
             </div>
+            <div className="mx-8">
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 font-medium"
+              >
+                Catatan Pengembalian
+              </Typography>
+              <textarea
+                rows="10" cols="100"
+                containerProps={{ className: "min-w-[72px]" }}
+                onChange={(e) => setCatatan(e.target.value)}
+                className=" border-solid border-2 border-gray-500 "
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
             <div className="flex flex-col gap-6 col-span-2 items-center">
               <Button className="my-4" color="indigo" size="lg">
                 Submit
@@ -126,6 +144,7 @@ export const PeminjamanRuangan = () => {
               </Link>
             </div>
           </form>
+
         </CardBody>
       </Card>
     </div>
