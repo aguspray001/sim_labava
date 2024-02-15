@@ -11,6 +11,26 @@ import { Link } from "react-router-dom";
 
 
 export function SignUp() {
+  const [token, setToken] = useState(null);
+  const [username, setUsername] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [phone_number, setPhoneNumber] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [role, setRole] = useState(null);
+  const [status, setStatus] = useState(null);
+  const [nim, setNim] = useState(null);
+  const [prodi, setProdi] = useState(null);
+
+  const daftar = async (username, email, phone_number, password, role, status, nim, prodi) => {
+    axios.defaults.baseURL = 'http://103.106.72.182:8101/api/v1/'
+    const resp = await axios({
+      url: "user/register", method: 'post', data: {
+        username, email, phone_number, password, role, status, nim, prodi
+      }
+    })
+    setToken(resp);
+  }
+
   return (
     <div className="w-full mt-24">
       <div className="text-center">
@@ -24,7 +44,7 @@ export function SignUp() {
           </Typography>
           <Input
             size="lg"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
@@ -37,32 +57,7 @@ export function SignUp() {
             type="email"
             size="lg"
             placeholder="name@mail.com"
-            // onChange={(e) => setEmail(e.target.value)}
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
-          />
-          <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-            Password
-          </Typography>
-          <Input
-            type="password"
-            // onChange={(e) => setPassword(e.target.value)}
-            size="lg"
-            placeholder="********"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
-          />
-          <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-            NIM
-          </Typography>
-          <Input
-            type="number"
-            size="lg"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
@@ -74,7 +69,20 @@ export function SignUp() {
           <Input
             type="number"
             size="lg"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
+            Password
+          </Typography>
+          <Input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            size="lg"
+            placeholder="********"
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
@@ -85,7 +93,30 @@ export function SignUp() {
           </Typography>
           <Input
             size="lg"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setRole(e.target.value)}
+            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
+            Status
+          </Typography>
+          <Input
+            size="lg"
+            onChange={(e) => setStatus(e.target.value)}
+            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
+            NIM
+          </Typography>
+          <Input
+            type="number"
+            size="lg"
+            onChange={(e) => setNim(e.target.value)}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
@@ -96,14 +127,14 @@ export function SignUp() {
           </Typography>
           <Input
             size="lg"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setProdi(e.target.value)}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
         </div>
-        <Button className="mt-6" fullWidth>
+        <Button className="mt-6" fullWidth onClick={() => daftar(username, email, phone_number, password, role, status, nim, prodi)}>
           Sign Up
         </Button>
         <div className="space-y-4 mt-8">
