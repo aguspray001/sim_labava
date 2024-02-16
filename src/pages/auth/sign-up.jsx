@@ -37,7 +37,7 @@ export function SignUp() {
         <Typography variant="h2" className="font-bold mb-4">Sign Up</Typography>
         {/* <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">Sign in to your account</Typography> */}
       </div>
-      <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
+      <form className="mt-8 mb-4 mx-auto w-80 max-w-screen-lg lg:w-1/2">
         <div className="mb-1 flex flex-col gap-6">
           <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
             Full Name
@@ -91,14 +91,26 @@ export function SignUp() {
           <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
             Role
           </Typography>
-          <Input
+          {/* <Input
             size="lg"
             onChange={(e) => setRole(e.target.value)}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
-          />
+          /> */}
+          <div className="relative">
+            <select
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-gray-900 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
+              <option value="mahasiswa">Mahasiswa</option>
+              <option value="petugas-lab">Petugas Lab</option>
+              <option value="ketua-lab">Ketua Lab</option>
+            </select>
+            <label
+              class="before:content[''] after:content[''] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+            </label>
+          </div>
+
           <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
             Status
           </Typography>
@@ -137,25 +149,7 @@ export function SignUp() {
         <Button className="mt-6" fullWidth onClick={() => daftar(username, email, phone_number, password, role, status, nim, prodi)}>
           Sign Up
         </Button>
-        <div className="space-y-4 mt-8">
-          <Button size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md" fullWidth>
-            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clipPath="url(#clip0_1156_824)">
-                <path d="M16.3442 8.18429C16.3442 7.64047 16.3001 7.09371 16.206 6.55872H8.66016V9.63937H12.9813C12.802 10.6329 12.2258 11.5119 11.3822 12.0704V14.0693H13.9602C15.4741 12.6759 16.3442 10.6182 16.3442 8.18429Z" fill="#4285F4" />
-                <path d="M8.65974 16.0006C10.8174 16.0006 12.637 15.2922 13.9627 14.0693L11.3847 12.0704C10.6675 12.5584 9.7415 12.8347 8.66268 12.8347C6.5756 12.8347 4.80598 11.4266 4.17104 9.53357H1.51074V11.5942C2.86882 14.2956 5.63494 16.0006 8.65974 16.0006Z" fill="#34A853" />
-                <path d="M4.16852 9.53356C3.83341 8.53999 3.83341 7.46411 4.16852 6.47054V4.40991H1.51116C0.376489 6.67043 0.376489 9.33367 1.51116 11.5942L4.16852 9.53356Z" fill="#FBBC04" />
-                <path d="M8.65974 3.16644C9.80029 3.1488 10.9026 3.57798 11.7286 4.36578L14.0127 2.08174C12.5664 0.72367 10.6469 -0.0229773 8.65974 0.000539111C5.63494 0.000539111 2.86882 1.70548 1.51074 4.40987L4.1681 6.4705C4.8001 4.57449 6.57266 3.16644 8.65974 3.16644Z" fill="#EA4335" />
-              </g>
-              <defs>
-                <clipPath id="clip0_1156_824">
-                  <rect width="16" height="16" fill="white" transform="translate(0.5)" />
-                </clipPath>
-              </defs>
-            </svg>
-            <span>Sign Up With Google</span>
-          </Button>
-        </div>
-        <Typography variant="paragraph" className="text-center text-blue-gray-500 font-medium mt-4">
+        <Typography variant="paragraph" className="mb-5 text-center text-blue-gray-500 font-medium mt-4">
           Already have account?
           <Link to="/auth/sign-up" className="text-gray-900 ml-1">Sign In</Link>
         </Typography>

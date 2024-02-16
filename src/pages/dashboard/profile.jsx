@@ -80,23 +80,6 @@ export function Profile() {
                   <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">S1 Kesehatan Masyarakat</dd>
                 </div>
               </dl>
-              <div>
-                <ProfileInfoCard
-                  // details={{
-                  //   username: "Zacky Maulana Achmad",
-                  //   email: "zacky@gmail.com",
-                  //   phone: "081234567889",
-                  //   role: "mahasiswa",
-                  //   NIM: "3130031887",
-                  //   prodi: "S1 Kesehatan Masyarakat",
-                  // }}
-                  action={
-                    <Tooltip content="Edit Profile">
-                      <PencilIcon className="h-4 w-4 cursor-pointer text-blue-gray-500" />
-                    </Tooltip>
-                  }
-                />
-              </div>
             </div>
           </div>
         </CardBody>

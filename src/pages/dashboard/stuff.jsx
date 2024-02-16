@@ -11,15 +11,40 @@ import {
 } from "@material-tailwind/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { daftarInventaris } from "@/data";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 export function Stuff() {
+    const [stuffData, setStuffData] = useState([]);
+
+    useEffect(() => {
+        const fetchStuffData = async () => {
+            try {
+                const response = await axios.get('URL_API_ANDA');
+                setStuffData(response.data);
+            } catch (error) {
+                console.error('Error fetching stuff data:', error);
+            }
+        };
+
+        fetchStuffData();
+    }, []);
+
     return (
         <div className="mt-12 mb-8 flex flex-col gap-12">
             <Card>
-                <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+                <CardHeader variant="gradient" color="gray" className="mb-8 p-6 flex justify-between items-center">
                     <Typography variant="h6" color="white">
-                        Daftar  Inventaris Alat Lab AVA
+                        Daftar Inventaris Alat Lab AVA
                     </Typography>
+                    <div>
+                        <a href="tambahInventaris">
+                            <Button color="indigo" size="lg" link>
+                                Tambah Inventaris
+                            </Button>
+                        </a>
+                    </div>
                 </CardHeader>
                 <CardBody className="overflow-y-scroll px-0 pt-0 pb-2">
                     <table className="w-full min-w-[640px] table-auto">
@@ -41,7 +66,12 @@ export function Stuff() {
                             </tr>
                         </thead>
                         <tbody>
-                            {daftarInventaris.map(
+                            {stuffData.map((stuff, index) => (
+                                <tr key={index}>
+                                    {/* Menampilkan data stuff */}
+                                </tr>
+                            ))}
+                            {/* {daftarInventaris.map(
                                 ({ name_stuff, buy_date, owner, current_condition, status, total, inventaris_number }, key) => {
                                     const className = `py-3 px-5 ${key === daftarInventaris.length - 1
                                         ? ""
@@ -95,7 +125,7 @@ export function Stuff() {
                                         </tr>
                                     );
                                 }
-                            )}
+                            )} */}
                         </tbody>
                     </table>
                 </CardBody>

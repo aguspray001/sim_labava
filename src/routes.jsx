@@ -8,9 +8,8 @@ import {
   ClipboardDocumentCheckIcon,
   VideoCameraIcon
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Stuff } from "@/pages/dashboard";
-import { PeminjamanRuangan, PeminjamanAlat } from "@/pages/form";
-
+import { Home, Profile, DaftarRentStuff, DaftarRentRoom, Stuff } from "@/pages/dashboard";
+import { PeminjamanRuangan, PeminjamanAlat, TambahInventaris, Kategori } from "@/pages/form";
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -41,10 +40,22 @@ export const routes = [
       },
       {
         icon: <TableCellsIcon {...icon} />,
-        name: "Daftar Peminjam",
-        path: "/tables",
-        element: <Tables />,
+        name: "Daftar Peminjam Alat",
+        path: "/daftar-pinjam-alat",
+        element: <DaftarRentStuff />,
       },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Daftar Peminjam Lab",
+        path: "/daftar-pinjam-ruangan",
+        element: <DaftarRentRoom />,
+      },
+    ],
+  },
+  {
+    title: "Form Pages",
+    layout: "dashboard",
+    pages: [
       {
         icon: <ClipboardDocumentCheckIcon {...icon} />,
         name: "peminjaman alat",
@@ -57,7 +68,25 @@ export const routes = [
         path: "/peminjaman-ruangan",
         element: <PeminjamanRuangan />,
       },
-    ],
+    ]
+  },
+  {
+    title: "Admin Pages",
+    layout: "dashboard",
+    pages: [
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Tambah Inventaris",
+        path: "/tambahInventaris",
+        element: <TambahInventaris />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Kategori",
+        path: "/kategori",
+        element: <Kategori />,
+      },
+    ]
   },
   {
     title: "auth pages",

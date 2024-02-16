@@ -26,7 +26,7 @@ export const PeminjamanAlat = () => {
   const [dosen, setDosen] = useState(null);
   const [keperluan, setKeperluan] = useState(null);
   const [datePengembalian, setDatePengembalian] = useState(null);
-  const [datePeminkaman, setDatePeminjaman] = useState(null);
+  const [datePeminjaman, setDatePeminjaman] = useState(null);
   const [catatan, setCatatan] = useState(null);
 
   const rent_stuff = async (nama, nim, prodi, nohp, jurusan, dosen, keperluan, datePengembalian, datePeminjaman, catatan) => {
@@ -38,9 +38,6 @@ export const PeminjamanAlat = () => {
     })
     setToken(resp);
   }
-
-
-
 
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12 justify-center items-center">
@@ -181,7 +178,7 @@ export const PeminjamanAlat = () => {
           </div>
           <div>
             <div className="flex flex-col gap-6 col-span-2 items-center">
-              <Button className="my-4" color="indigo" size="lg" onClick={() => login(nama, nim, prodi, nohp, jurusan, dosen, keperluan, datePengembalian, datePeminjaman, catatan)}>
+              <Button className="my-4" color="indigo" size="lg" onClick={() => rent_stuff(nama, nim, prodi, nohp, jurusan, dosen, keperluan, datePengembalian, datePeminjaman, catatan)}>
                 Submit
               </Button>
               <Link to={`/dashboard/peminjaman-alat/pdf`} className='ml-3'>

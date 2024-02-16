@@ -10,15 +10,15 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
-import { daftarPeminjamAlat } from "@/data";
+import { daftarPeminjamRuangan } from "@/data";
 
-export function Tables() {
+export function DaftarRentRoom() {
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
         <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
           <Typography variant="h6" color="white">
-            Daftar Peminjam Alat Inventaris
+            Daftar Peminjam Ruangan Lab AVA
           </Typography>
         </CardHeader>
         {/* <CardBody className="overflow-x-scroll px-0 pt-0 pb-2"> */}
@@ -42,9 +42,9 @@ export function Tables() {
               </tr>
             </thead>
             <tbody>
-              {daftarPeminjamAlat.map(
+              {daftarPeminjamRuangan.map(
                 ({ user, rent_date, return_date, purpose, dosen_pengampu, organization }, key) => {
-                  const className = `py-3 px-5 ${key === daftarPeminjamAlat.length - 1
+                  const className = `py-3 px-5 ${key === daftarPeminjamRuangan.length - 1
                     ? ""
                     : "border-b border-blue-gray-50"
                     }`;
@@ -89,17 +89,11 @@ export function Tables() {
                           {organization}
                         </Typography>
                       </td>
-                      {/* <td className={className}>
-                        <Chip
-                          variant="gradient"
-                          color={online ? "green" : "blue-gray"}
-                          value={online ? "accepted" : "rejected"}
-                          className="py-0.5 px-2 text-[11px] font-medium w-fit"
-                        />
-                      </td> */}
                       <td className={className}>
-                        <Button color="green">Accept</Button>
-                        <Button color="red" style={{ marginLeft: 10 }}>Reject</Button>
+                        <div className="flex gap-2">
+                          <Button color="green">Accept</Button>
+                          <Button color="red">Reject</Button>
+                        </div>
                       </td>
                     </tr>
                   );
@@ -113,4 +107,4 @@ export function Tables() {
   );
 }
 
-export default Tables;
+export default DaftarRentRoom;

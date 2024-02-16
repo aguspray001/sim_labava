@@ -6,4 +6,5 @@ export * from "@/data/platform-settings-data";
 export * from "@/data/conversations-data";
 export * from "@/data/projects-data";
 export * from "@/data/daftar-peminjam-alat";
+export * from "@/data/daftar-peminjam-ruangan";
 export * from "@/data/daftar-inventaris";
