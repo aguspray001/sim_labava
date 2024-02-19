@@ -2,3 +2,8 @@ export * from "@/pages/form/peminjamanAlat";
 export * from "@/pages/form/peminjamanRuangan";
 export * from "@/pages/form/tambahInventaris";
 export * from "@/pages/form/kategori";
+export * from "@/pages/form/add-user-role";
+export * from "@/pages/form/add-prodi";
+export * from "@/pages/form/add-room";
+export * from "@/pages/form/add-owner";
+export * from "@/pages/form/add-condition";

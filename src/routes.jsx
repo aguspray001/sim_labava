@@ -9,7 +9,7 @@ import {
   VideoCameraIcon
 } from "@heroicons/react/24/solid";
 import { Home, Profile, DaftarRentStuff, DaftarRentRoom, Stuff } from "@/pages/dashboard";
-import { PeminjamanRuangan, PeminjamanAlat, TambahInventaris, Kategori } from "@/pages/form";
+import { PeminjamanRuangan, PeminjamanAlat, TambahInventaris, Kategori, UserRole, AddProdi, AddRoom, AddOwner, AddCondition } from "@/pages/form";
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -79,6 +79,36 @@ export const routes = [
         name: "Tambah Inventaris",
         path: "/tambahInventaris",
         element: <TambahInventaris />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "User Role",
+        path: "/add-user-role",
+        element: <UserRole />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Program Studi",
+        path: "/add-prodi",
+        element: <AddProdi />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Ruangan Lab AVA",
+        path: "/add-room",
+        element: <AddRoom />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Owner Inventaris",
+        path: "/add-owner",
+        element: <AddOwner />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Kondisi Inventaris",
+        path: "/add-condition",
+        element: <AddCondition />,
       },
       {
         icon: <TableCellsIcon {...icon} />,
