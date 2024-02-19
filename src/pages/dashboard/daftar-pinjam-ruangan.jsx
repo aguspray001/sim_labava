@@ -3,16 +3,26 @@ import {
   CardHeader,
   CardBody,
   Typography,
-  Avatar,
-  Chip,
-  Tooltip,
-  Progress,
   Button,
 } from "@material-tailwind/react";
-import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import React, { useState } from 'react';
 import { daftarPeminjamRuangan } from "@/data";
 
 export function DaftarRentRoom() {
+  const [daftarPeminjam, setDaftarPeminjam] = useState(daftarPeminjamRuangan);
+
+  const handleAccept = (index) => {
+    const newDaftarPeminjam = [...daftarPeminjam];
+    newDaftarPeminjam[index].status = "Accepted";
+    setDaftarPeminjam(newDaftarPeminjam);
+  };
+
+  const handleReject = (index) => {
+    const newDaftarPeminjam = [...daftarPeminjam];
+    newDaftarPeminjam[index].status = "Rejected";
+    setDaftarPeminjam(newDaftarPeminjam);
+  };
+
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
@@ -21,14 +31,13 @@ export function DaftarRentRoom() {
             Daftar Peminjam Ruangan Lab AVA
           </Typography>
         </CardHeader>
-        {/* <CardBody className="overflow-x-scroll px-0 pt-0 pb-2"> */}
         <CardBody className="overflow-y-scroll px-0 pt-0 pb-2">
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["Peminjam", "Tanggal Peminjaman", "Tanggal Pengembalian", "Keperluan", "Dosen Pengampu", "Jurusan/Organisasi"].map((el) => (
+                {["Peminjam", "Tanggal Peminjaman", "Tanggal Pengembalian", "Keperluan", "Dosen Pengampu", "Jurusan/Organisasi", "Aksi"].map((el, index) => (
                   <th
-                    key={el}
+                    key={index}
                     className="border-b border-blue-gray-50 py-3 px-5 text-left"
                   >
                     <Typography
@@ -42,58 +51,38 @@ export function DaftarRentRoom() {
               </tr>
             </thead>
             <tbody>
-              {daftarPeminjamRuangan.map(
-                ({ user, rent_date, return_date, purpose, dosen_pengampu, organization }, key) => {
-                  const className = `py-3 px-5 ${key === daftarPeminjamRuangan.length - 1
-                    ? ""
-                    : "border-b border-blue-gray-50"
-                    }`;
+              {daftarPeminjam.map(
+                ({ user, rent_date, return_date, purpose, dosen_pengampu, organization, status }, index) => {
+                  const className = `py-3 px-5 ${index === daftarPeminjam.length - 1 ? "" : "border-b border-blue-gray-50"}`;
                   return (
-                    <tr key={user}>
+                    <tr key={index}>
                       <td className={className}>
-                        <div className="flex items-center gap-4">
-                          {/* <Avatar src={img} alt={user} size="sm" variant="rounded" /> */}
-                          <div>
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-semibold"
-                            >
-                              {user}
-                            </Typography>
+                        <Typography variant="small" color="blue-gray" className="font-semibold">{user}</Typography>
+                      </td>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">{rent_date}</Typography>
+                      </td>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">{return_date}</Typography>
+                      </td>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">{purpose}</Typography>
+                      </td>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">{dosen_pengampu}</Typography>
+                      </td>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">{organization}</Typography>
+                      </td>
+                      <td className={className}>
+                        {status === "Accepted" && <Typography className="text-xs font-semibold text-green-600">Permintaan disetujui</Typography>}
+                        {status === "Rejected" && <Typography className="text-xs font-semibold text-red-600">Permintaan ditolak</Typography>}
+                        {status !== "Accepted" && status !== "Rejected" && (
+                          <div className="flex gap-2">
+                            <Button color="green" onClick={() => handleAccept(index)}>Accept</Button>
+                            <Button color="red" onClick={() => handleReject(index)}>Reject</Button>
                           </div>
-                        </div>
-                      </td>
-                      <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {rent_date}
-                        </Typography>
-                      </td>
-                      <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {return_date}
-                        </Typography>
-                      </td>
-                      <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {purpose}
-                        </Typography>
-                      </td>
-                      <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {dosen_pengampu}
-                        </Typography>
-                      </td>
-                      <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {organization}
-                        </Typography>
-                      </td>
-                      <td className={className}>
-                        <div className="flex gap-2">
-                          <Button color="green">Accept</Button>
-                          <Button color="red">Reject</Button>
-                        </div>
+                        )}
                       </td>
                     </tr>
                   );
