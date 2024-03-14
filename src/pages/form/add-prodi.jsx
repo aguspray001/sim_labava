@@ -13,14 +13,14 @@ import { Link } from "react-router-dom";
 
 export const AddProdi = () => {
   const [token, setToken] = useState(null);
-  const [prodi, setProdi] = useState(null);
-  const [number_prodi, setNumberProdi] = useState(null);
+  const [prodi_name, setProdiName] = useState(null);
+  const [prodi_number, setProdiNumber] = useState(null);
 
-  const ProdiAdd = async (prodi, number_prodi) => {
+  const ProdiAdd = async (prodi_name, prodi_number) => {
     axios.defaults.baseURL = 'http://103.106.72.182:8101/api/v1/'
     const resp = await axios({
       url: "user/prodi", method: 'post', data: {
-        prodi, number_prodi
+        prodi_name, prodi_number
       }
     })
     setToken(resp);
@@ -43,8 +43,8 @@ export const AddProdi = () => {
                 </Typography>
                 <Input
                   size="lg"
-                  onChange={(e) => setProdi(e.target.value)}
-                  placeholder="Nama Peminjam"
+                  onChange={(e) => setProdiName(e.target.value)}
+                  placeholder="add prodi"
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{ className: "before:content-none after:content-none" }}
                 />
@@ -54,9 +54,10 @@ export const AddProdi = () => {
                   Nomor Program Studi
                 </Typography>
                 <Input
+                  type="number"
                   size="lg"
-                  onChange={(e) => setNumberProdi(e.target.value)}
-                  placeholder="Organisasi / Jurusan"
+                  onChange={(e) => setProdiNumber(e.target.value)}
+                  // placeholder="Organisasi / Jurusan"
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{ className: "before:content-none after:content-none" }}
                 />
@@ -65,7 +66,7 @@ export const AddProdi = () => {
           </form>
           <div>
             <div className="flex flex-col gap-6 col-span-2 items-center">
-              <Button className="my-4" color="indigo" size="lg" onClick={() => ProdiAdd(prodi, number_prodi)}>
+              <Button className="my-4" color="indigo" size="lg" onClick={() => ProdiAdd(prodi_name, prodi_number)}>
                 Submit
               </Button>
             </div>

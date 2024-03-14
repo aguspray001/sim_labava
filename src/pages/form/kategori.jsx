@@ -10,19 +10,18 @@ import {
 import React, { useState } from 'react'
 import axios from "axios";
 import { Link } from "react-router-dom";
-import DatePicker from '@/widgets/components/datePicker';
 
 export const Kategori = () => {
   const [token, setToken] = useState(null);
-  const [name_category, setNameCategory] = useState(null);
-  const [total_category, setTotalCategory] = useState(null);
-  const [number_category, setNumberCategory] = useState(null);
+  const [name, setName] = useState(null);
+  const [total, setTotal] = useState(null);
+  const [category_number, setNumberCategory] = useState(null);
 
-  const category = async (name_category, total_category, number_category) => {
+  const category = async (name, total, category_number) => {
     axios.defaults.baseURL = 'http://103.106.72.182:8101/api/v1/'
     const resp = await axios({
-      url: "stuff/category/", method: 'post', data: {
-        name_category, total_category, number_category
+      url: "stuff/category", method: 'post', data: {
+        name, total, category_number
       }
     })
     setToken(resp);
@@ -45,8 +44,8 @@ export const Kategori = () => {
                 </Typography>
                 <Input
                   size="lg"
-                  onChange={(e) => setNameCategory(e.target.value)}
-                  placeholder="Nama Peminjam"
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="add kategori"
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{ className: "before:content-none after:content-none" }}
                 />
@@ -56,9 +55,10 @@ export const Kategori = () => {
                   Total
                 </Typography>
                 <Input
+                  type="number"
                   size="lg"
-                  onChange={(e) => setTotalCategory(e.target.value)}
-                  placeholder="Prodi"
+                  onChange={(e) => setTotal(e.target.value)}
+                  // placeholder="Prodi"
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{ className: "before:content-none after:content-none" }}
                 />
@@ -68,9 +68,10 @@ export const Kategori = () => {
                   Nomor Kategori
                 </Typography>
                 <Input
+                  type="number"
                   size="lg"
                   onChange={(e) => setNumberCategory(e.target.value)}
-                  placeholder="Organisasi / Jurusan"
+                  // placeholder="Organisasi / Jurusan"
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{ className: "before:content-none after:content-none" }}
                 />
@@ -79,7 +80,7 @@ export const Kategori = () => {
           </form>
           <div>
             <div className="flex flex-col gap-6 col-span-2 items-center">
-              <Button className="my-4" color="indigo" size="lg" onClick={() => category(name_category, total_category, number_category)}>
+              <Button className="my-4" color="indigo" size="lg" onClick={() => category(name, total, category_number)}>
                 Submit
               </Button>
             </div>

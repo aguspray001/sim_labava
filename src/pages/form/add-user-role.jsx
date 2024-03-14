@@ -13,14 +13,14 @@ import { Link } from "react-router-dom";
 
 export const UserRole = () => {
   const [token, setToken] = useState(null);
-  const [user_role, setUserRole] = useState(null);
-  const [number_user_role, setNumberUserRole] = useState(null);
+  const [role_name, setRoleName] = useState(null);
+  const [role_number, setRoleNumber] = useState(null);
 
-  const RoleUser = async (user_role, number_user_role) => {
+  const RoleUser = async (role_name, role_number) => {
     axios.defaults.baseURL = 'http://103.106.72.182:8101/api/v1/'
     const resp = await axios({
-      url: "", method: 'post', data: {
-        user_role, number_user_role
+      url: "user/role", method: 'post', data: {
+        role_name, role_number
       }
     })
     setToken(resp);
@@ -43,8 +43,8 @@ export const UserRole = () => {
                 </Typography>
                 <Input
                   size="lg"
-                  onChange={(e) => setUserRole(e.target.value)}
-                  placeholder="Nama Peminjam"
+                  onChange={(e) => setRoleName(e.target.value)}
+                  placeholder="add Role"
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{ className: "before:content-none after:content-none" }}
                 />
@@ -54,9 +54,10 @@ export const UserRole = () => {
                   Nomor User Role
                 </Typography>
                 <Input
+                  type="number"
                   size="lg"
-                  onChange={(e) => setNumberUserRole(e.target.value)}
-                  placeholder="Organisasi / Jurusan"
+                  onChange={(e) => setRoleNumber(e.target.value)}
+                  // placeholder="Organisasi / Jurusan"
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{ className: "before:content-none after:content-none" }}
                 />
@@ -65,7 +66,7 @@ export const UserRole = () => {
           </form>
           <div>
             <div className="flex flex-col gap-6 col-span-2 items-center">
-              <Button className="my-4" color="indigo" size="lg" onClick={() => RoleUser(user_role, number_user_role)}>
+              <Button className="my-4" color="indigo" size="lg" onClick={() => RoleUser(role_name, role_number)}>
                 Submit
               </Button>
             </div>
