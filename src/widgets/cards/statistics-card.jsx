@@ -1,37 +1,19 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-} from "@material-tailwind/react";
+import { Card, CardBody } from "@material-tailwind/react";
 import PropTypes from "prop-types";
+import TextStatisticCard from "../components/textStatisticCard";
 
 export function StatisticsCard({ color, icon, title, value, footer }) {
   return (
-    <Card className="border border-blue-gray-100 shadow-sm">
-      <CardHeader
-        variant="gradient"
-        color={color}
-        floated={false}
-        shadow={false}
-        className="absolute grid h-12 w-12 place-items-center"
-      >
-        {icon}
-      </CardHeader>
-      <CardBody className="p-4 text-right">
-        <Typography variant="small" className="font-normal text-blue-gray-600">
-          {title}
-        </Typography>
-        <Typography variant="h4" color="blue-gray">
-          {value}
-        </Typography>
+    <Card className="border border-blue-gray-100 shadow-md">
+      {/* <div className="ml-12 pt-2">
+        <p className="text-sm font-bold">Packing Data:</p>
+      </div> */}
+      <CardBody className="flex flex-col justify-between p-4 text-right">
+        <TextStatisticCard title={"Bin from"} value={"BP230, BP230"} />
+        <TextStatisticCard title={"Counter Start"} value={"50 Bag"} />
+        <TextStatisticCard title={"Counter Finish"} value={"900 Bag"} />
+        <TextStatisticCard title={"Status"} value={"Feeding"} />
       </CardBody>
-      {footer && (
-        <CardFooter className="border-t border-blue-gray-50 p-4">
-          {footer}
-        </CardFooter>
-      )}
     </Card>
   );
 }
@@ -64,10 +46,8 @@ StatisticsCard.propTypes = {
     "pink",
     "red",
   ]),
-  icon: PropTypes.node.isRequired,
   title: PropTypes.node.isRequired,
   value: PropTypes.node.isRequired,
-  footer: PropTypes.node,
 };
 
 StatisticsCard.displayName = "/src/widgets/cards/statistics-card.jsx";

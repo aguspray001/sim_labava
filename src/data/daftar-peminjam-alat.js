@@ -17,22 +17,6 @@ export const daftarPeminjamAlat = [
     dosen_pengampu: "Pak Dhoto",
     organization: "S1 Sistem Informasi",
   },
-  {
-    user: "Zacky Maulana Achmad",
-    rent_date: "20/01/24",
-    return_date: "29/01/24",
-    purpose: "Acara Harlah",
-    dosen_pengampu: "Bu Atiq",
-    organization: "S1 Kesmas",
-  },
-  {
-    user: "Michael Levi",
-    rent_date: "20/01/24",
-    return_date: "29/01/24",
-    purpose: "Kegiatan Himpunan",
-    dosen_pengampu: "Bu Dwi",
-    organization: "S1 Kesmas",
-  },
 ];
 
 export default daftarPeminjamAlat;

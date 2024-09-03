@@ -1,39 +1,27 @@
-import { Routes, Route } from "react-router-dom";
-import { Cog6ToothIcon } from "@heroicons/react/24/solid";
-import { IconButton } from "@material-tailwind/react";
-import {
-  Sidenav,
-  DashboardNavbar,
-  Configurator,
-  Footer,
-} from "@/widgets/layout";
+import { setOpenConfigurator, useMaterialTailwindController } from "@/context";
 import routes from "@/routes";
-import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
+import { DashboardNavbar, Footer } from "@/widgets/layout";
+import SidebarWithBurgerMenu from "@/widgets/layout/sidenav-cpi";
+import { Cog6ToothIcon } from "@heroicons/react/24/solid";
+import { IconButton, Typography } from "@material-tailwind/react";
+import { Route, Routes } from "react-router-dom";
 
 export function Dashboard() {
-  const [controller, dispatch] = useMaterialTailwindController();
-  const { sidenavType } = controller;
-
   return (
     <div className="min-h-screen bg-blue-gray-50/50">
-      <Sidenav
-        routes={routes}
-        brandImg={
-          sidenavType === "dark" ? "/img/logo-ct.png" : "/img/logo-ct-dark.png"
-        }
-      />
-      <div className="p-4 xl:ml-80">
+      <SidebarWithBurgerMenu routes={routes} />
+      <div className="p-4 xl:mx-10">
+        <div className="flex flex-row gap-3 items-center">
+          <img
+            src="https://cp.co.id/wp-content/uploads/2015/09/logo-cp.png"
+            alt="brand"
+            className="h-12 w-12"
+          />
+          <Typography variant="h5" className="font-bold">
+            PT Charoen Pokphand Indonesia Tbk. | Demak
+          </Typography>
+        </div>
         <DashboardNavbar />
-        <Configurator />
-        <IconButton
-          size="lg"
-          color="white"
-          className="fixed bottom-8 right-8 z-40 rounded-full shadow-blue-gray-900/10"
-          ripple={false}
-          onClick={() => setOpenConfigurator(dispatch, true)}
-        >
-          <Cog6ToothIcon className="h-5 w-5" />
-        </IconButton>
         <Routes>
           {routes.map(
             ({ layout, pages }) =>
